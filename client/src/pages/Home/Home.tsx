@@ -68,21 +68,26 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h1>
+      <h1 className="home-title">
         {userName
           ? `Bienvenue ${userName} !`
           : "Bienvenue sur votre To-Do List !"}
       </h1>
-      <div className="task-section">
-        <TaskForm onAddTask={addTask} />
-        <TaskList tasks={filteredTasks} onDeleteTask={deleteTask} />
+      <div className="task-wrapper">
+        <div className="task-section">
+          <TaskForm onAddTask={addTask} />
+          <TaskList tasks={filteredTasks} onDeleteTask={deleteTask} />
+        </div>
       </div>
       <div className="filter-container">
-        <label htmlFor="categoryFilter">Filtrer par statut :</label>
+        <label htmlFor="categoryFilter" className="filter-label">
+          Filtrer par statut :
+        </label>
         <select
           id="categoryFilter"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
+          className="filter-select"
         >
           <option value="Toutes">Toutes</option>
           <option value="todo">À faire</option>
