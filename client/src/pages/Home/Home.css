@@ -1,155 +1,55 @@
-/* 🌸 Conteneur principal */
+/* Home.css */
+
 .home-container {
-  max-width: 500px;
-  margin: 120px auto 20px;
-  padding: 25px;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
   text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* 🌸 Titre */
-.home-title {
-  color: #ff69b4;
-  font-size: 2em;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-/* 🌸 Conteneur de la liste des tâches */
-.task-section {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 12px;
-  background: #fff0f5;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* 🌸 Tâche individuelle */
-.task {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  background: #ffe4e1;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
-}
-
-.task:hover {
-  transform: scale(1.02);
-}
-
-/* 🌸 Texte de la tâche */
-.task-text {
-  font-size: 1.1em;
-  color: #333;
-}
-
-/* 🌸 Badge de catégorie */
-.category-badge {
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.9em;
-  font-weight: bold;
-  color: white;
-}
-
-/* 🌸 Bouton de suppression */
-.delete-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.5em;
-  color: #ff69b4;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.delete-btn:hover {
-  color: #d63384;
-  transform: scale(1.2);
-}
-
-/* 🌸 Formulaire d'ajout */
-.task-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+h1 {
+  
+  font-size: 1.8rem;
+  color: #5a2d82;
   margin-bottom: 20px;
 }
 
-/* 🌸 Input & Select */
-.task-form input,
-.task-form select {
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #ffb6c1;
-  font-size: 1em;
-  background-color: #fffaf0;
-}
-
-/* 🌸 Bouton Ajouter */
-.task-form button {
-  background-color: #ff69b4;
-  color: white;
-  font-size: 1.2em;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.task-form button:hover {
-  background-color: #d63384;
-}
-
-/* 🌸 Filtre */
-.filter-container {
-  margin-top: 15px;
+.task-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 15px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container {
+  margin-top: 20px;
 }
 
 .filter-container label {
-  font-size: 1.1em;
   font-weight: bold;
-  color: #ff69b4;
-  margin-bottom: 8px;
+  color: #5a2d82;
+  display: block;
+  margin-bottom: 5px;
 }
 
-.filter-select {
+.filter-container select {
   padding: 10px;
-  border-radius: 10px;
-  font-size: 1em;
-  border: 2px solid #ffb6c1;
-  background-color: white;
-  width: 100%;
+  border: 2px solid #d4a5ff;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-/* 🌸 Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .home-container {
-    max-width: 95%;
+    padding: 15px;
   }
 
   .task-section {
     padding: 10px;
-  }
-
-  .filter-select {
-    width: 90%;
-  }
-
-  .task-text {
-    font-size: 1em;
-  }
-
-  .delete-btn {
-    font-size: 1.3em;
   }
 }

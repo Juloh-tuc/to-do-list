@@ -1,8 +1,8 @@
-import { FaHome, FaSignOutAlt, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
+import { FaHome, FaUser, FaSignOutAlt } from "react-icons/fa";
 import "./NavBar.css";
 
-const NavBar: React.FC = () => {
+function NavBar() {
   const navigate = useNavigate();
   const userName = localStorage.getItem("userName");
 
@@ -12,7 +12,7 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar blur-navbar">
       <ul className="navbar-list">
         <li className="navbar-item">
           <Link to="/home" className="navbar-link">
@@ -39,6 +39,6 @@ const NavBar: React.FC = () => {
       </ul>
     </nav>
   );
-};
+}
 
 export default NavBar;

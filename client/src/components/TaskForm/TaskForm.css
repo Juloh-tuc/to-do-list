@@ -1,34 +1,63 @@
+/* TaskForm.css */
+
 .task-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .task-input {
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #ffb6c1;
-  font-size: 1.2em;
-  background-color: #fffaf0;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #d4a5ff;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.task-input:focus {
+  border-color: #8a2be2;
 }
 
 .task-select {
-  padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #ffb6c1;
-  font-size: 1em;
-}
-
-.task-add-btn {
-  background-color: #ff69b4;
-  color: white;
-  font-size: 1.2em;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #d4a5ff;
+  background: #fff;
   cursor: pointer;
 }
 
-.task-add-btn:hover {
-  background-color: #d63384;
+.add-task-btn {
+  background: #8a2be2;
+  color: #fff;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-task-btn:hover {
+  background: #6a1db7;
+}
+
+@media (max-width: 768px) {
+  .task-form {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .task-input,
+  .task-select,
+  .add-task-btn {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
 }

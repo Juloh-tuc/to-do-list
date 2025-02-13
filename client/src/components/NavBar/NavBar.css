@@ -14,8 +14,72 @@
 }
 
 /* 🌸 Liste */
-.navbar-list {
-  list-style: none;
+  .navbar-list {
+  list-style: none; /* NavBar.css */
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Effet blur */
+    backdrop-filter: blur(10px);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .navbar-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+  }
+
+  .navbar-item {
+    display: flex;
+  }
+
+  .navbar-link,
+  .navbar-button {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #5a2d82;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .navbar-link:hover,
+  .navbar-button:hover {
+    background: rgba(90, 45, 130, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .navbar {
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .navbar-list {
+      gap: 10px;
+    }
+
+    .navbar-link,
+    .navbar-button {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+    }
+  }
+
   display: flex;
   justify-content: flex-start;
   gap: 20px;

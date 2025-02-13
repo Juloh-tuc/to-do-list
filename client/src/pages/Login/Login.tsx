@@ -1,28 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Login.css";
 
-const Login: React.FC = () => {
-  const [username, setUsername] = useState<string>("");
+function Login() {
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!username.trim()) {
       alert("Veuillez entrer votre prénom !");
       return;
     }
-
     try {
-      const response = await fetch("http://localhost:3310/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username }),
-      });
-
-      if (!response.ok) throw new Error("Erreur lors de la connexion");
-
+      await axios.post("http://localhost:3310/api/login", { username });
       localStorage.setItem("userName", username);
       navigate("/home");
     } catch (error) {
@@ -48,6 +40,6 @@ const Login: React.FC = () => {
       </form>
     </div>
   );
-};
+}
 
 export default Login;

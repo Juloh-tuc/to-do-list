@@ -7,11 +7,9 @@ const categories = [
   { name: "Terminée", value: "done", emoji: "✅" },
 ];
 
-interface TaskFormProps {
-  onAddTask: (title: string, status: string) => void;
-}
-
-export default function TaskForm({ onAddTask }: TaskFormProps) {
+function TaskForm({
+  onAddTask,
+}: { onAddTask: (title: string, status: string) => void }) {
   const [text, setText] = useState("");
   const [category, setCategory] = useState(categories[0].value);
 
@@ -31,8 +29,13 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
         onChange={(e) => setText(e.target.value)}
         placeholder="Ajouter une tâche..."
         required
+        className="task-input"
       />
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className="task-select"
+      >
         {categories.map((cat) => (
           <option key={cat.value} value={cat.value}>
             {cat.emoji} {cat.name}
@@ -45,3 +48,5 @@ export default function TaskForm({ onAddTask }: TaskFormProps) {
     </form>
   );
 }
+
+export default TaskForm;
