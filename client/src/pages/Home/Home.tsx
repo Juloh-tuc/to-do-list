@@ -18,6 +18,8 @@ function Home() {
       const response = await axios.get(
         `http://localhost:3310/api/tasks/${userName}`,
       );
+      console.log("📥 Tâches récupérées depuis API :", response.data);
+
       const formattedTasks = response.data.map(
         (task: { id: number; title: string; status: string }) => ({
           id: task.id,
@@ -25,10 +27,12 @@ function Home() {
           category: task.status,
         }),
       );
+
+      console.log("📌 Tâches formatées :", formattedTasks);
       setTasks(formattedTasks);
     } catch (error) {
       const err = error as AxiosError;
-      console.error("Erreur Axios :", err.response?.data || err.message);
+      console.error("🚨 Erreur Axios :", err.response?.data || err.message);
     }
   }, [userName]);
 
@@ -39,25 +43,31 @@ function Home() {
   const addTask = async (title: string, status: string) => {
     if (!userName) return alert("Vous devez être connecté !");
     try {
+      console.log("📤 Envoi de la tâche :", { title, status, user: userName });
+
       await axios.post("http://localhost:3310/api/tasks", {
         title,
-        user: userName,
         status,
+        user: userName, // Assure-toi que ce champ est bien attendu par le backend
       });
-      await fetchTasks();
+
+      await fetchTasks(); // Mettre à jour les tâches après ajout
     } catch (error) {
       const err = error as AxiosError;
-      console.error("Erreur Axios :", err.response?.data || err.message);
+      console.error("🚨 Erreur Axios :", err.response?.data || err.message);
     }
   };
 
   const deleteTask = async (id: number) => {
     try {
+      console.log("🗑 Suppression de la tâche ID :", id);
+
       await axios.delete(`http://localhost:3310/api/tasks/${id}`);
+
       await fetchTasks();
     } catch (error) {
       const err = error as AxiosError;
-      console.error("Erreur Axios :", err.response?.data || err.message);
+      console.error("🚨 Erreur Axios :", err.response?.data || err.message);
     }
   };
 
@@ -73,12 +83,14 @@ function Home() {
           ? `Bienvenue ${userName} !`
           : "Bienvenue sur votre To-Do List !"}
       </h1>
+
       <div className="task-wrapper">
         <div className="task-section">
           <TaskForm onAddTask={addTask} />
           <TaskList tasks={filteredTasks} onDeleteTask={deleteTask} />
         </div>
       </div>
+
       <div className="filter-container">
         <label htmlFor="categoryFilter" className="filter-label">
           Filtrer par statut :

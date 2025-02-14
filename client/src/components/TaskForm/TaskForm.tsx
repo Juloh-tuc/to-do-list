@@ -16,8 +16,10 @@ function TaskForm({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (text.trim()) {
+      console.log("✅ Tâche soumise :", { text, category }); // Debug
+
       onAddTask(text, category);
-      setText("");
+      setText(""); // Reset du champ après soumission
     }
   };
 
